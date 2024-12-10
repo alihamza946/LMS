@@ -1,5 +1,8 @@
 import { useState } from 'react'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AdminDashboard from './Pages/Admin/Dashboard';
+import ManageBooks from './Pages/Admin/ManageBooks';
+import ManageUsers from './Pages/Admin/ManageUser';
 
 const App = () => {
   // Authentication States
@@ -17,9 +20,15 @@ const App = () => {
   const [selectedUser, setSelectedUser] = useState(null);
 
   return (
-      <div>
-          <h1>Library Management System</h1>
-      </div>
+    <Router>
+    <Routes>
+      {/* Admin Routes */}
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/manage-books" element={<ManageBooks />} />
+      <Route path="/admin/manage-users" element={<ManageUsers />} />
+      <Route path="/admin/book/:id" element={<BookDetails />} />
+    </Routes>
+  </Router>
   );
 };
 
