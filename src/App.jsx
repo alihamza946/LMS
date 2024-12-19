@@ -8,13 +8,27 @@ import TrackDownloads from './Pages/Admin/TrackDownload';
 import AddBook from './Pages/Author/AddBook';
 import ManageUploadedBooks from './Pages/Author/ManageUploadedbooks';
 import BookDownloads from './Pages/Author/ViewBookDownloads';
+import HomePage from './Pages/Homepage';
+import Books from './Pages/books';
+import Login from './Pages/Login';
+import Singup from './Pages/Signup';
+import Navbar from './components/Navbar';
+import Signup from './Pages/Signup';
+
+
+
 
 
 const App = () => {
 
   return (
     <Router>
+      <Navbar />
     <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Signup" element={<Signup />} />
+                <Route path="/books" element={<Books />} />
       {/* Admin Routes */}
       <Route path="/Admin/Dashboard" element={<AdminDashboard />} />
       <Route path="/Admin/ManageBooks" element={<ManageBooks />} />
